@@ -19,4 +19,9 @@ class ProgressBar:
 		print('\r', self.bar, end='')
 
 	def _generate_bar(self):
-		self.bar = f"[{self.char * self.current}>] {self.percent}%"
+		self.bar = f"[{self.char * self.current}  {' ' * (self.total - self.current)}>] {self.percent}%"
+
+if __name__ == '__main__':
+	bar = ProgressBar()
+	bar.show()
+	bar.increment(10)

@@ -4,4 +4,10 @@ A Python progress bar module
 
 ## Usage
 
-Code here
+bar = ProgressBar()
+bar.show()
+bar.increment(5)
+
+Do stuff here...
+
+bar.increment(10)
