@@ -13,10 +13,9 @@ class ProgressBar:
 			self._generate_bar()
 			print('\r', self.bar, end='')
 		else:
-			raise ValueError("Increment value over total progress bar value")
+			raise ValueError("Increment value greater than total progress bar value")
 
 	def show(self):
-		print("Hello\n")
 		print('\r', self.bar, end='')
 
 	def _generate_bar(self):
