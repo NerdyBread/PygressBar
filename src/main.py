@@ -1,5 +1,4 @@
 from time import sleep
-from sys import stdout
 
 class ProgressBar:
 	def __init__(self, start=0, total=100, length=20, char="=", increment_delay=1):
