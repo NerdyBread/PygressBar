@@ -1,4 +1,5 @@
 from time import sleep
+from sys import stdout
 
 class ProgressBar:
 	def __init__(self, start=0, total=100, length=20, char="=", increment_delay=1):
@@ -15,17 +16,18 @@ class ProgressBar:
 		self.percent = float(self.current) * 100 / self.total
 		if self.percent <= 100:
 			self._generate_bar()
-			print('\r', self.bar, end='')
+			print(self.bar, end='\r')
 			sleep(self.increment_delay)
 		else:
 			raise ValueError("Increment value greater than total progress bar value")
 
 	def show(self):
-		print(self.bar, end='')
+		print(self.bar, end='\r')
 
 	def _generate_bar(self):
 		self.num_chars = int((self.percent / 100) * self.length)
-		self.bar = f"[{self.char * self.num_chars}{' ' * (self.length - self.num_chars)}>] {self.percent}%"
+		self.bar = f"[{self.char * self.num_chars}{' ' * (self.length - self.num_chars)}>] {round(self.percent, 4)}%        "
+		# The spaces at the end fix a bug with the carriage return
 
 if __name__ == '__main__':
 	bar = ProgressBar(length=40, start=10, total=120)
