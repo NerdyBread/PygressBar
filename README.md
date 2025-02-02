@@ -1,4 +1,4 @@
-# Pygress Bar (Ha ha funny name)
+# Pygress Bar
 
 A Python progress bar module
 
